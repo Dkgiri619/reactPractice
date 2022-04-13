@@ -1,0 +1,12 @@
+.search{
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+#searchBox{
+    height: 20px;
+    width: 10rem;
+    text-align: center;
+    outline-style: none;
+    display: block;
+}
