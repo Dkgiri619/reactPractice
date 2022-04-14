@@ -10,6 +10,6 @@ export const searchByUid =async (user)=>{
             photoURL,
             posts:[]
         })
-        console.log("updated firebase");
+        // console.log("updated firebase");
     }
 }

@@ -1,18 +1,32 @@
 import { auth, firestore, storage } from "../Firebase/Firebase";
 import { authContext } from "../Auth/AuthProvider";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Navigate } from 'react-router-dom';
 import { VideoCard } from "../VideoCard/VideoCard";
 import { v4 as uuidv4 } from 'uuid';
 import "./Home.css"
 export const Home = () => {
     let [posts, setPost] = useState([]);
-    let user = useContext(authContext);
-    
+    const user = useContext(authContext);
+    useEffect(() => {
+        firestore.collection("posts").onSnapshot((querySnapshot) => {
+            let docArr = querySnapshot.docs;
+            let arr = [];
+            for (let i = 0; i < docArr.length; i++) {
+                arr.push({
+                    id: docArr[i].id,
+                    ...docArr[i].data()
+                })
+            }
+            setPost(arr);
+        })
+    }, []);
     return <>
         {!user && <Navigate to="/login" />}
         <div className="mobView">
-            <VideoCard />
+            {posts.map((post)=>{
+                return <VideoCard key={post.postId} post={post} />
+            })}
             <button id="logout" onClick={() => {
                 auth.signOut();
             }}>Logout</button>
@@ -33,25 +47,39 @@ export const Home = () => {
                         alert("File size should be < 20mb");
                         return;
                     }
-                    
+
                     let uploadtask = storage.ref(`/posts/${user.uid}/${Date.now() + '-' + name}`).put(file);
 
                     uploadtask.on("state_changed", null, null, () => {
-                        uploadtask.snapshot.ref.getDownloadURL().then((url)=>{
-                            firestore.collection('posts').add({
-                                displayName:user.displayName, 
+                        let displayName = user.displayName;
+                        let userId = user.uid, postId = uuidv4().split("-")[0];
+                        uploadtask.snapshot.ref.getDownloadURL().then(async (url) => {
+                            let postRef = firestore.collection('posts').doc(postId);
+                            await postRef.set({
+                                displayName,
                                 url,
-                                comments:[],
-                                likes:[],
-                                postId:uuidv4().split("-")[0],
-                                userId: user.uid                                      
+                                userId,
+                                postId,
+                                comments: [],
+                                likes: []
+                            })
+                            console.log("updated post");
+                            let userRef = firestore.collection("users").doc(userId);
+                            let userSnap = await userRef.get();
+                            let lists = userSnap.data();
+                            // console.log(lists);
+                            let arr = [...lists["posts"]];
+                            arr.push({
+                                postId
                             });
-                            firestore.collection(`users/${user.uid}/posts`).
+                            await userRef.update({
+                                posts: arr
+                            }).then(() => { alert("Video uploded") });
                         });
                     })
                 }}
-                onClick = {(e)=>{
-                    e.currentTarget.value=null;
+                onClick={(e) => {
+                    e.currentTarget.value = null;
                 }}
             />
 
