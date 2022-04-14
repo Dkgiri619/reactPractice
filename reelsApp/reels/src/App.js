@@ -1,11 +1,12 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import { Login } from './components/Login';
-import { Home } from "./components/Home";
-import AuthProvider from './components/AuthProvider';
+import { Login } from './components/Auth/Login';
+import { Home } from "./components/Home/Home";
+import AuthProvider from './components/Auth/AuthProvider';
 let App = () => {
+  
   return (
-    <>
+    <div className='App'>
       <AuthProvider>
         <Router>
           <Routes>
@@ -14,7 +15,7 @@ let App = () => {
           </Routes>
         </Router>
       </AuthProvider>
-    </>
+    </div>
   );
 }
 

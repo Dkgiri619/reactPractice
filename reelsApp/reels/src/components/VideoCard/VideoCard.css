@@ -1,0 +1,19 @@
+.videoCard {
+    border: 1px solid;
+    height: 89%;
+    width: 100%;
+}
+
+.infoBox {
+    position: absolute;
+    height: 8%;
+    width: 70%;
+    top: 89%;
+    border: 1px solid;
+}
+
+#videoElem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

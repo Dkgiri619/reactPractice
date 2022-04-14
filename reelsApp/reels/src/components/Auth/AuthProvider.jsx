@@ -1,7 +1,7 @@
 import { useState, createContext, useEffect } from "react"
 
-import { auth } from "./Firebase";
-import { searchByUid } from "./Firestore";
+import { auth } from "../Firebase/Firebase";
+import { searchByUid } from "../Firebase/Firestore";
 
 export const authContext = createContext();
 

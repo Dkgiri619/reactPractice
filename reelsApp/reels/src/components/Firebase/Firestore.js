@@ -7,7 +7,8 @@ export const searchByUid =async (user)=>{
         await docRef.set({
             displayName,
             email,
-            photoURL
+            photoURL,
+            posts:[]
         })
         console.log("updated firebase");
     }

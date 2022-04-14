@@ -1,0 +1,38 @@
+.mobView {
+    border: 2px solid;
+    position: relative;
+    height: 40rem;
+    width: 30rem;
+    display: block;
+    margin-left: 45rem;
+    margin-top: 10rem;
+    padding: 20px;
+}
+
+#logout {
+    position: absolute;
+    bottom: 10px;
+    right: 25px;
+    border-radius: 5px;
+    border: none;
+    background-color: skyblue;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    padding: 3px;
+}
+.upload{
+    width: 4rem;
+    outline: none;
+    top: 48rem;
+    position: absolute;
+    right: 44rem;
+    cursor: pointer;
+    text-align: center;
+    background-color: cadetblue;
+    color: white;
+    border-radius: 5px;
+}
+#fileInput{
+    display: none;
+}

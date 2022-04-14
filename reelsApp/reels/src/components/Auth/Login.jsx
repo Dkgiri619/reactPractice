@@ -1,7 +1,7 @@
 
 import { useContext } from "react"
 
-import { signInWithGoogle } from "./Firebase"
+import { signInWithGoogle } from "../Firebase/Firebase"
 import { authContext } from "./AuthProvider"
 import { Navigate } from "react-router-dom";
 
