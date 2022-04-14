@@ -5,10 +5,11 @@ let AuthProvider = (props) => {
     let [user, setUser] = useState(null);
     let [loading, setLoad] = useState(true);
     useEffect(() => {
-        let unsub = auth.onAuthStateChange((user) => {
+        let unsub = auth.onAuthStateChanged((user) => {
             if(user){
                 let { displayName, email, uid, photoUrl } = user;
                 setUser({ displayName, email, uid, photoUrl});
+                console.log(displayName, email, uid);
             }else{
                 setUser(null);
             }
