@@ -6,6 +6,7 @@ export const Home = ()=>{
     let user = useContext(authContext);
     return <>
         {!user && <Navigate to="/login"/>}
+        <h1>Home</h1>
         <button onClick={()=>{
             auth.signOut();
         }}>Logout</button>

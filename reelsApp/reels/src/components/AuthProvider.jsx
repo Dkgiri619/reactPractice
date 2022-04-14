@@ -1,15 +1,20 @@
 import { useState, createContext, useEffect } from "react"
+
 import { auth } from "./Firebase";
+import { searchByUid } from "./Firestore";
+
 export const authContext = createContext();
+
 let AuthProvider = (props) => {
     let [user, setUser] = useState(null);
     let [loading, setLoad] = useState(true);
     useEffect(() => {
-        let unsub = auth.onAuthStateChanged((user) => {
+        let unsub = auth.onAuthStateChanged(async (user) => {
             if(user){
-                let { displayName, email, uid, photoUrl } = user;
-                setUser({ displayName, email, uid, photoUrl});
-                console.log(displayName, email, uid);
+                let { displayName, email, uid, photoURL } = user;
+                setUser({ displayName, email, uid, photoURL});
+                // console.log(user);
+                await searchByUid(user);
             }else{
                 setUser(null);
             }
