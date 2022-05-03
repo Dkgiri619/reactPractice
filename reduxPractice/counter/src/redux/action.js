@@ -1,6 +1,12 @@
-export const incrementCreator = () =>{
+export const incrementCreator = (payload) =>{
     return {
         type:"INCREMENT",
-        payload:1
+        payload:payload
+    }
+}
+export const decrementCreator = (dec)=>{
+    return {
+        type:"DECREMENT",
+        payload:dec
     }
 }
