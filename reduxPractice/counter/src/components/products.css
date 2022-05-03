@@ -1,0 +1,36 @@
+
+.product {
+margin-top: 20px;
+  height: 25rem;
+  width: 20rem;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  padding: 5px;
+  border-radius: 5px;
+}
+.product-img-div {
+  height: 90%;
+  width: 100%;
+}
+#product-img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+.add-button-div {
+  display: flex;
+  justify-content: space-evenly;
+
+}
+#add-button {
+  color: white;
+  background-color: orange;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  height: 2rem;
+}

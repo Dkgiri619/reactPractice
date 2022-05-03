@@ -1,27 +1,19 @@
 import "./App.css";
-import { useSelector } from "react-redux";
-import { decrementCreator, incrementCreator } from "./redux/action";
-import { useDispatch } from "react-redux";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/home";
+import Navbar from "./components/navbar";
+import Cart from "./components/cart";
+import Preview from "./components/perview";
 let App = () => {
-  let dispatch = useDispatch();
-  let state = useSelector((state) => state);
   return (
-    <div className="App">
-      <button
-        onClick={() => {
-          dispatch(incrementCreator(5));
-        }}
-      >
-        +
-      </button>
-      <br></br>
-      {state}
-      <br></br>
-      <button onClick={()=>{
-        dispatch(decrementCreator(4));
-      }}>-</button>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/preview" element={<Preview />} />
+      </Routes>
+    </Router>
   );
 };
 

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1",
+    "category": "mobile",
+    "price": 20000,
+    "name": "Samsung J1",
+    "img": "https://drop.ndtv.com/TECH/product_database/images/39201631447PM_635_samsung_galaxy_j1_mini.jpeg?downsize=*:180"
+  },
+  {
+    "id": "2",
+    "category": "cycle",
+    "price": 5000,
+    "name": "Hero",
+    "img": "https://static.toiimg.com/thumb/msid-65320739,imgsize-493263,width-400,resizemode-4/65320739.jpg"
+  },
+  {
+    "id": "3",
+    "category": "book",
+    "price": 1000,
+    "name": "Wheel Of Time",
+    "img": "https://upload.wikimedia.org/wikipedia/en/thumb/0/00/WoT01_TheEyeOfTheWorld.jpg/220px-WoT01_TheEyeOfTheWorld.jpg"
+  },
+  {
+    "id": "4",
+    "category": "book",
+    "price": 400,
+    "name": "Monk Who Sold His Ferrari",
+    "img": "https://images-na.ssl-images-amazon.com/images/I/71HJacyavHL.jpg"
+  },
+  {
+    "id": "5",
+    "category": "mobile",
+    "price": 2000,
+    "name": "JIO Smart Phone",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRRPAICVCgWlK8pBFTXNdppUopoP9C70IqTTCPjoV5i57q0MYV1zN2NrQvpyT1orsFQsY&usqp=CAU"
+  },
+  {
+    "id": "6",
+    "category": "mobile",
+    "price": 50000,
+    "name": "Iphone 11 Max",
+    "img": "https://m.media-amazon.com/images/I/61ers6OzvUL._SX522_.jpg"
+  }
+]
