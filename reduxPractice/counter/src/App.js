@@ -4,6 +4,7 @@ import Home from "./components/home";
 import Navbar from "./components/navbar";
 import Cart from "./components/cart";
 import Preview from "./components/perview";
+
 let App = () => {
   return (
     <Router>
@@ -11,7 +12,7 @@ let App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/preview" element={<Preview />} />
+        <Route path="/preview:id" element={<Preview />} />
       </Routes>
     </Router>
   );

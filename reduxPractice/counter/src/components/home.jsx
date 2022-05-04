@@ -1,8 +1,10 @@
 import Products from "./products";
-import "./home.css"
+import "./home.css";
 let Home = () => {
-  return <div className="home">
-    <Products/>
-  </div>;
+  return (
+    <div className="home">
+      <Products />
+    </div>
+  );
 };
 export default Home;
